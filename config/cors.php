@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [env('APP_FRONTEND_URL'. 'https://http://127.0.0.1:8000')], //da cambiare nell'http giusto (quello del front-end)
+    'allowed_origins' => ['*'], //da cambiare nell'http giusto (quello del front-end)
 
     'allowed_origins_patterns' => [],
 
