@@ -8,13 +8,26 @@ use App\Models\Project;
 
 class ProjectController extends Controller
 {
-    function index() {
+    public function index() {
         $projects = Project::with(['technologies', 'type'])->orderByDesc('id')->get();
 
         return response()->json([
             'success' => true,
             'projects' => $projects
         ]);
+    }
+
+    function show($slug) {
+
+        $project = Project::with(['technologies', 'type'])->where('slug', $slug)->first();
+
+        if ($project) {
+
+            return response()->json([
+                'success' => true,
+                'project' => $project
+            ]);
+        }
     }
     
 }
