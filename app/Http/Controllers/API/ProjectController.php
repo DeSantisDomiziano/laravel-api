@@ -17,7 +17,7 @@ class ProjectController extends Controller
         ]);
     }
 
-    function show($slug) {
+    function show( $slug) {
 
         $project = Project::with(['technologies', 'type'])->where('slug', $slug)->first();
 
@@ -26,6 +26,11 @@ class ProjectController extends Controller
             return response()->json([
                 'success' => true,
                 'project' => $project
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'result' => 'Post not found 404',
             ]);
         }
     }
